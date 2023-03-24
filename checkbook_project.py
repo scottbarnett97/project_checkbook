@@ -7,7 +7,7 @@ if not os.path.exists('ledger.txt'):
 def total_balance():
     with open('ledger.txt','r') as z:
         balance = float(z.read())
-    print(f'Your current balance is: ${balance:.2}')
+    print(f'Your current balance is: ${balance:.2f}')
     
 def a_debit():
     value = input("How much is the debit (withdraw)?\n Use Format = ####.## no comma or $\n" )
@@ -27,7 +27,7 @@ def a_debit():
     balance -= value
     with open('ledger.txt','w') as z:
         z.write(str(balance))
-        print(f'Withdraw successful!! new balance is: ${balance}')
+        print(f'Withdraw successful, new balance is: ${balance:.2f}')
 
 def a_credit():
     value = input("How much is the credit (deposit)?\n Format = ####.## no comma or $\n" )
@@ -44,7 +44,7 @@ def a_credit():
     balance += value
     with open('ledger.txt','w') as z:
         z.write(str(balance))
-        print(f'Deposit successful!! new balance is: ${balance}')
+        print(f'Deposit successful, new balance is: ${balance:.2f}')
     
 def back_to_the_furture():
     print("Don't worry. As long as you hit that wire with the connecting hook at precisely 88 miles per hour, the instant the lightning strikes the tower... everything will be fine -- Dr. Emmett Brown")
@@ -56,7 +56,7 @@ def flux_capacitor():
     print("Plutonium is used by the onboard nuclear reactor")
     print("which then powers the flux capacitor to provide the needed 1.21 gigawatts of electrical power.")
     print("Please contact your local plutonium supplier.")
-    print(f"But, with a balance of ${balance}, I wouldn't waste your time")
+    print(f"But, with a balance of ${balance:.2f}, I wouldn't waste your time")
 while True:
     choice = input("   ---  Welcome to your terminal checkbook!  --- \n\nWhat would you like to do?\n\nMake a selection using 1-4\n  1) view current balance\n  2) record a debit (withdraw)\n  3) record a credit (deposit)\n  4) exit\nYour choice (1-4)?: ")
     if choice == '1':
@@ -67,7 +67,7 @@ while True:
         a_credit()
     elif choice == '4':
         print("Have a good day!")
-        break
+        quit()
     elif choice == '88':
         back_to_the_furture() 
     elif choice == '121':
